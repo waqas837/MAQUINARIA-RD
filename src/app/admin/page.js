@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ClipboardList, BarChart3, Users, FileText } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ListingApproval from '@/components/admin/ListingApproval';
 import AllLeadsView from '@/components/admin/AllLeadsView';
@@ -11,10 +12,10 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState('listings');
 
   const tabs = [
-    { id: 'listings', label: 'Listing Approval', icon: '📋' },
-    { id: 'leads', label: 'All Leads', icon: '📊' },
-    { id: 'users', label: 'User Management', icon: '👥' },
-    { id: 'content', label: 'Content Management', icon: '📝' },
+    { id: 'listings', label: 'Listing Approval', icon: ClipboardList },
+    { id: 'leads', label: 'All Leads', icon: BarChart3 },
+    { id: 'users', label: 'User Management', icon: Users },
+    { id: 'content', label: 'Content Management', icon: FileText },
   ];
 
   return (
@@ -77,7 +78,7 @@ export default function AdminPage() {
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
+                {tab.icon && <tab.icon className="w-4 h-4 mr-2 inline" />}
                 {tab.label}
               </button>
             ))}

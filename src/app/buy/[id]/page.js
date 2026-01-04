@@ -1,16 +1,19 @@
+'use client';
+
+import { useState, use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
-
-export async function generateMetadata({ params }) {
-  return {
-    title: `Equipment Details - MAQUINARIA RD`,
-    description: 'View detailed information about this equipment listing',
-  };
-}
+import LoginModal from '@/components/modals/LoginModal';
+import SignupModal from '@/components/modals/SignupModal';
+import ContactSellerModal from '@/components/modals/ContactSellerModal';
 
 export default function EquipmentDetailPage({ params }) {
-  const id = params.id;
+  const { id } = use(params);
+  const [isLoggedIn] = useState(false); // In real app, check from auth context
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   
   // Sample equipment data - in real app, fetch from API
   const equipmentData = {
@@ -392,12 +395,18 @@ export default function EquipmentDetailPage({ params }) {
               </div>
 
               <div className="space-y-4">
-                <Link
-                  href="/contact"
-                  className="w-full px-6 py-3 rounded-xl bg-yellow-500 text-slate-900 font-bold hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20 text-center block"
+                <button
+                  onClick={() => {
+                    if (!isLoggedIn) {
+                      setShowLoginModal(true);
+                    } else {
+                      setShowContactModal(true);
+                    }
+                  }}
+                  className="w-full px-6 py-3 rounded-xl bg-yellow-500 text-slate-900 font-bold hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20 text-center"
                 >
                   Contact Seller
-                </Link>
+                </button>
                 <button className="w-full px-6 py-3 rounded-xl border-2 border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all">
                   Request More Info
                 </button>
@@ -455,6 +464,29 @@ export default function EquipmentDetailPage({ params }) {
           </div>
         </div>
       </main>
+
+      {/* Modals */}
+      <LoginModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onSwitchToSignup={() => {
+          setShowLoginModal(false);
+          setShowSignupModal(true);
+        }}
+      />
+      <SignupModal
+        isOpen={showSignupModal}
+        onClose={() => setShowSignupModal(false)}
+        onSwitchToLogin={() => {
+          setShowSignupModal(false);
+          setShowLoginModal(true);
+        }}
+      />
+      <ContactSellerModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
+        equipment={equipment}
+      />
     </div>
   );
 }

@@ -1,16 +1,14 @@
-import Link from 'next/link';
-import Navbar from '@/components/Navbar';
+'use client';
 
-export const metadata = {
-  title: "Help Center - MAQUINARIA RD",
-  description: "Get help and support for using MAQUINARIA RD",
-};
+import Link from 'next/link';
+import { Rocket, ShoppingCart, DollarSign, Settings } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 
 export default function HelpPage() {
   const helpCategories = [
     {
       title: "Getting Started",
-      icon: "🚀",
+      icon: Rocket,
       articles: [
         "How to create an account",
         "How to list equipment",
@@ -20,7 +18,7 @@ export default function HelpPage() {
     },
     {
       title: "Buying Equipment",
-      icon: "🛒",
+      icon: ShoppingCart,
       articles: [
         "How to make an offer",
         "Financing options",
@@ -30,7 +28,7 @@ export default function HelpPage() {
     },
     {
       title: "Selling Equipment",
-      icon: "💰",
+      icon: DollarSign,
       articles: [
         "Creating effective listings",
         "Setting the right price",
@@ -40,7 +38,7 @@ export default function HelpPage() {
     },
     {
       title: "Account & Settings",
-      icon: "⚙️",
+      icon: Settings,
       articles: [
         "Managing your profile",
         "Notification settings",
@@ -81,7 +79,7 @@ export default function HelpPage() {
           {helpCategories.map((category, index) => (
             <div key={index} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-center space-x-4 mb-4">
-                <div className="text-4xl">{category.icon}</div>
+                {category.icon && <category.icon className="w-10 h-10 text-yellow-500" />}
                 <h2 className="text-2xl font-bold text-slate-900">{category.title}</h2>
               </div>
               <ul className="space-y-2">

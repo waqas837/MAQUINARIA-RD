@@ -1,0 +1,158 @@
+{
+  "common": {
+    "search": "Buscar",
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "buyEquipment": "Comprar Equipo",
+    "sellEquipment": "Vender Equipo",
+    "inspection": "Inspección",
+    "dashboard": "Panel de Control",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "help": "Ayuda",
+    "faq": "Preguntas Frecuentes",
+    "blog": "Blog",
+    "finance": "Financiamiento"
+  },
+  "home": {
+    "title": "Compra equipo usado",
+    "titleHighlight": "sin esfuerzo",
+    "subtitle": "Encuentra el equipo pesado perfecto para tu negocio. Navega miles de listados verificados de vendedores confiables.",
+    "searchPlaceholder": "Buscar por tipo de equipo, marca o modelo...",
+    "popularSearches": "Búsquedas Populares",
+    "browseByCategory": "Explorar por Categoría",
+    "buyWithConfidence": "Compra con Confianza",
+    "trustFeatures": {
+      "verified": "Equipo Verificado",
+      "inspection": "Informes de Inspección de 150+ Puntos",
+      "oilSamples": "Muestras de Aceite",
+      "secure": "Transacciones Seguras",
+      "support": "Soporte 24/7"
+    },
+    "comingSoon": {
+      "title": "Próximamente",
+      "subtitle": "Características increíbles en las que estamos trabajando",
+      "features": {
+        "inspection": "Informes de Inspección Avanzados",
+        "chat": "Soporte de Chat en Vivo",
+        "analytics": "Análisis de Mercado",
+        "support": "Soporte 24/7"
+      }
+    }
+  },
+  "navbar": {
+    "brandName": "MAQUINARIA RD",
+    "tagline": "El mercado de las maquinarias"
+  },
+  "footer": {
+    "buyers": "Compradores",
+    "sellers": "Vendedores",
+    "company": "Empresa",
+    "support": "Soporte",
+    "findEquipment": "Encontrar Equipo",
+    "inspectionServices": "Servicios de Inspección",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos de servicio"
+  },
+  "buy": {
+    "title": "Explorar Equipo",
+    "searchPlaceholder": "Buscar equipo...",
+    "filterByCategory": "Filtrar por Categoría",
+    "filterByPrice": "Filtrar por Precio",
+    "filterByCondition": "Filtrar por Condición",
+    "viewDetails": "Ver Detalles",
+    "contactSeller": "Contactar Vendedor",
+    "price": "Precio",
+    "condition": "Condición",
+    "year": "Año",
+    "hours": "Horas"
+  },
+  "inspection": {
+    "title": "Inspección Profesional de Equipos",
+    "subtitle": "Obtén tranquilidad con nuestros servicios de inspección certificados. Elige el plan que se adapte a tus necesidades.",
+    "certifiedInspectors": "Inspectores Certificados",
+    "fastTurnaround": "Entrega Rápida",
+    "detailedReports": "Informes Detallados",
+    "plans": {
+      "basic": {
+        "name": "Inspección Básica",
+        "price": 299,
+        "description": "Inspección esencial para evaluación estándar de equipos"
+      },
+      "pro": {
+        "name": "Inspección Pro",
+        "price": 599,
+        "description": "Inspección integral con análisis detallado"
+      },
+      "full": {
+        "name": "Inspección Completa",
+        "price": 999,
+        "description": "Inspección profesional completa con certificación"
+      }
+    },
+    "mostPopular": "MÁS POPULAR",
+    "perInspection": "por inspección",
+    "selectPlan": "Seleccionar",
+    "requestInspection": "Solicitar Inspección",
+    "requestSubtitle": "Complete el formulario a continuación para programar la inspección de su equipo",
+    "selectedPlan": "Plan Seleccionado",
+    "form": {
+      "fullName": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "inspectionPlan": "Plan de Inspección",
+      "equipmentType": "Tipo de Equipo",
+      "preferredDate": "Fecha Preferida",
+      "equipmentLocation": "Ubicación del Equipo",
+      "equipmentDetails": "Detalles del Equipo",
+      "equipmentDetailsPlaceholder": "Marca, modelo, año, número de serie o cualquier preocupación específica...",
+      "locationPlaceholder": "Ingrese la dirección completa donde se encuentra el equipo",
+      "selectPlan": "Seleccionar un plan",
+      "selectEquipmentType": "Seleccionar tipo de equipo",
+      "agreeTerms": "Acepto los",
+      "termsOfService": "Términos de Servicio",
+      "and": "y",
+      "privacyPolicy": "Política de Privacidad",
+      "submit": "Enviar Solicitud de Inspección"
+    },
+    "whyChoose": {
+      "title": "¿Por Qué Elegir Nuestro Servicio de Inspección?",
+      "certified": {
+        "title": "Inspectores Certificados",
+        "description": "Todos nuestros inspectores son profesionales certificados con años de experiencia en evaluación de equipo pesado."
+      },
+      "fast": {
+        "title": "Entrega Rápida",
+        "description": "Obtén tu informe de inspección detallado en 12-48 horas según el plan seleccionado."
+      },
+      "comprehensive": {
+        "title": "Informes Integrales",
+        "description": "Recibe informes profesionales detallados con fotos, recomendaciones y evaluaciones de condición."
+      },
+      "trusted": {
+        "title": "Confiable y Seguro",
+        "description": "Nuestros informes de inspección son confiables para compradores, vendedores y compañías de seguros a nivel nacional."
+      },
+      "pricing": {
+        "title": "Precios Justos",
+        "description": "Precios transparentes sin tarifas ocultas. Elige el plan que se adapte a tus necesidades y presupuesto."
+      },
+      "support": {
+        "title": "Soporte Continuo",
+        "description": "Obtén soporte post-inspección y consultoría para ayudarte a tomar decisiones informadas."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Panel de Operador",
+    "subtitle": "Administra tus leads, conversaciones e consultas de equipos",
+    "newLeads": "Nuevos Leads",
+    "activeConversations": "Conversaciones Activas",
+    "equipmentListings": "Listados de Equipos",
+    "myLeads": "Mis Leads",
+    "conversations": "Conversaciones",
+    "equipment": "Equipo"
+  }
+}
+

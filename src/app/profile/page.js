@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Settings, Search, Bell } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import SavedSearches from '@/components/profile/SavedSearches';
 
@@ -24,9 +25,9 @@ export default function ProfilePage() {
   });
 
   const tabs = [
-    { id: 'settings', label: 'Account Settings', icon: '⚙️' },
-    { id: 'searches', label: 'Saved Searches', icon: '🔍' },
-    { id: 'alerts', label: 'Alerts', icon: '🔔' },
+    { id: 'settings', label: 'Account Settings', icon: Settings },
+    { id: 'searches', label: 'Saved Searches', icon: Search },
+    { id: 'alerts', label: 'Alerts', icon: Bell },
   ];
 
   const handleSubmit = (e) => {
@@ -59,7 +60,7 @@ export default function ProfilePage() {
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
+                {tab.icon && <tab.icon className="w-4 h-4 mr-2 inline" />}
                 {tab.label}
               </button>
             ))}
