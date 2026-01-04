@@ -1,0 +1,116 @@
+'use client';
+
+import { useState } from 'react';
+import Navbar from '@/components/Navbar';
+import LeadsPanel from '@/components/dashboard/LeadsPanel';
+import ConversationHub from '@/components/dashboard/ConversationHub';
+import EquipmentManagement from '@/components/dashboard/EquipmentManagement';
+
+export default function DashboardPage() {
+  const [activeTab, setActiveTab] = useState('leads');
+  const [unreadLeads] = useState(3); // Sample unread leads count
+  const [selectedLead, setSelectedLead] = useState(null);
+
+  const tabs = [
+    { id: 'leads', label: 'My Leads', icon: '📋', badge: unreadLeads },
+    { id: 'conversations', label: 'Conversations', icon: '💬', badge: 2 },
+    { id: 'equipment', label: 'Equipment', icon: '🚜', badge: 0 },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#f8fafc]">
+      <Navbar />
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        {/* Dashboard Header */}
+        <div className="mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-2">
+            Operator Dashboard
+          </h1>
+          <p className="text-lg text-slate-600">
+            Manage your leads, conversations, and equipment inquiries
+          </p>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-semibold text-slate-600">New Leads</span>
+              <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center">
+                <span className="text-xl">📋</span>
+              </div>
+            </div>
+            <div className="text-3xl font-extrabold text-slate-900">12</div>
+            <div className="text-xs text-slate-500 mt-1">+3 from last week</div>
+          </div>
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-semibold text-slate-600">Active Conversations</span>
+              <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center">
+                <span className="text-xl">💬</span>
+              </div>
+            </div>
+            <div className="text-3xl font-extrabold text-slate-900">8</div>
+            <div className="text-xs text-slate-500 mt-1">2 unread messages</div>
+          </div>
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-semibold text-slate-600">Equipment Listings</span>
+              <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center">
+                <span className="text-xl">🚜</span>
+              </div>
+            </div>
+            <div className="text-3xl font-extrabold text-slate-900">24</div>
+            <div className="text-xs text-slate-500 mt-1">5 pending inquiries</div>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm mb-6">
+          <div className="flex flex-wrap border-b border-slate-200">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`relative flex-1 sm:flex-none px-6 py-4 font-semibold text-sm transition-all ${
+                  activeTab === tab.id
+                    ? 'text-yellow-600 border-b-2 border-yellow-500 bg-yellow-50/50'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                <span className="mr-2">{tab.icon}</span>
+                {tab.label}
+                {tab.badge > 0 && (
+                  <span className="ml-2 px-2 py-0.5 bg-yellow-500 text-slate-900 text-[10px] font-bold rounded-full">
+                    {tab.badge}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="p-6">
+            {activeTab === 'leads' && (
+              <LeadsPanel 
+                onSelectLead={setSelectedLead}
+                selectedLead={selectedLead}
+              />
+            )}
+            {activeTab === 'conversations' && (
+              <ConversationHub 
+                selectedLead={selectedLead}
+                onSelectLead={setSelectedLead}
+              />
+            )}
+            {activeTab === 'equipment' && (
+              <EquipmentManagement />
+            )}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+

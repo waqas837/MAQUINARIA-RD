@@ -305,6 +305,75 @@ export default function EquipmentDetailPage({ params }) {
                 ))}
               </div>
             </div>
+
+            {/* Inspection Report */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-slate-900">Inspection Report</h2>
+                <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200">
+                  ✓ Verified
+                </span>
+              </div>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="bg-slate-50 rounded-xl p-4">
+                    <div className="text-sm font-semibold text-slate-600 mb-1">Overall Score</div>
+                    <div className="text-3xl font-extrabold text-slate-900">92/100</div>
+                  </div>
+                  <div className="bg-slate-50 rounded-xl p-4">
+                    <div className="text-sm font-semibold text-slate-600 mb-1">Inspection Date</div>
+                    <div className="text-lg font-bold text-slate-900">Jan 10, 2026</div>
+                  </div>
+                  <div className="bg-slate-50 rounded-xl p-4">
+                    <div className="text-sm font-semibold text-slate-600 mb-1">Inspector</div>
+                    <div className="text-lg font-bold text-slate-900">Certified Inspector</div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="font-bold text-slate-900 mb-4">Inspection Categories</h3>
+                  <div className="space-y-3">
+                    {[
+                      { category: 'Engine & Powertrain', score: 95, status: 'Excellent' },
+                      { category: 'Hydraulics', score: 90, status: 'Very Good' },
+                      { category: 'Undercarriage', score: 88, status: 'Very Good' },
+                      { category: 'Cab & Controls', score: 94, status: 'Excellent' },
+                      { category: 'Attachments', score: 92, status: 'Excellent' },
+                    ].map((item, index) => (
+                      <div key={index} className="border border-slate-200 rounded-xl p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-semibold text-slate-900">{item.category}</span>
+                          <span className="text-sm font-bold text-slate-700">{item.score}/100</span>
+                        </div>
+                        <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                          <div
+                            className="bg-yellow-500 h-full rounded-full transition-all"
+                            style={{ width: `${item.score}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-xs text-slate-500 mt-1">{item.status}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-4">
+                  <div className="flex items-start space-x-3">
+                    <svg className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <div>
+                      <div className="font-semibold text-slate-900 mb-1">150+ Point Inspection</div>
+                      <div className="text-sm text-slate-600">This equipment has undergone a comprehensive 150+ point inspection. Full report available upon request.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <button className="w-full px-6 py-3 rounded-xl border-2 border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all">
+                  Download Full Inspection Report (PDF)
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Sidebar */}

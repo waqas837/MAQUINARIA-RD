@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [notificationCount] = useState(3); // Sample notification count
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,6 +53,17 @@ const Navbar = () => {
               className="text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-colors px-2 py-1"
             >
               Sell Equipment
+            </Link>
+            <Link 
+              href="/dashboard" 
+              className="relative text-sm font-semibold text-slate-700 hover:text-yellow-600 transition-colors px-2 py-1"
+            >
+              Dashboard
+              {notificationCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-yellow-500 text-slate-900 text-[10px] font-bold rounded-full flex items-center justify-center">
+                  {notificationCount}
+                </span>
+              )}
             </Link>
             <Link 
               href="/login" 
@@ -105,6 +117,13 @@ const Navbar = () => {
               className="block px-4 py-3 text-base font-semibold text-slate-700 hover:text-yellow-600 hover:bg-yellow-50 rounded-lg transition-colors"
             >
               Sell Equipment
+            </Link>
+            <Link
+              href="/dashboard"
+              onClick={() => setIsMenuOpen(false)}
+              className="block px-4 py-3 text-base font-semibold text-slate-700 hover:text-yellow-600 hover:bg-yellow-50 rounded-lg transition-colors"
+            >
+              Dashboard
             </Link>
             <Link
               href="/login"
