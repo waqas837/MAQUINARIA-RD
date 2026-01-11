@@ -170,7 +170,7 @@ export default function Home() {
                     <span className="text-lg font-extrabold text-yellow-600">{item.price}</span>
                   </div>
                   <span className="text-xs text-slate-600 group-hover:text-yellow-600 transition-colors font-semibold">
-                    View Details →
+                    {t('home.viewDetails')} →
                   </span>
                 </div>
               </Link>
@@ -189,7 +189,7 @@ export default function Home() {
           {/* Horizontal Banner Over Buy with Confidence */}
           <div className="mb-6">
             <div className="bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl p-4 text-center">
-              <p className="text-white text-sm font-semibold">Banner Space</p>
+              <p className="text-white text-sm font-semibold">{t('common.bannerSpace')}</p>
             </div>
           </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
@@ -288,14 +288,14 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
                 {[
-                  { range: 'Under $25K', image: '/machinery-images/forklifts.db350043.webp' },
-                  { range: 'Under $50K', image: '/machinery-images/skid-steer-loaders.a630fec7.webp' },
-                  { range: 'Under $100K', image: '/machinery-images/service-trucks.a3cc7c24.webp' },
-                  { range: 'Under $250K', image: '/machinery-images/excavators.b19c4bba.webp' },
+                  { range: t('home.priceRanges.under25k'), image: '/machinery-images/forklifts.db350043.webp' },
+                  { range: t('home.priceRanges.under50k'), image: '/machinery-images/skid-steer-loaders.a630fec7.webp' },
+                  { range: t('home.priceRanges.under100k'), image: '/machinery-images/service-trucks.a3cc7c24.webp' },
+                  { range: t('home.priceRanges.under250k'), image: '/machinery-images/excavators.b19c4bba.webp' },
                 ].map((priceRange, index) => (
                   <Link
                     key={index}
-                    href={`/buy?maxPrice=${priceRange.range.includes('25K') ? '25000' : priceRange.range.includes('50K') ? '50000' : priceRange.range.includes('100K') ? '100000' : '250000'}`}
+                    href={`/buy?maxPrice=${priceRange.range.includes('25') ? '25000' : priceRange.range.includes('50') ? '50000' : priceRange.range.includes('100') ? '100000' : '250000'}`}
                     className="group bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden hover:border-yellow-300"
                   >
                     <div className="relative h-32 sm:h-40 bg-slate-100 flex items-center justify-center">
@@ -309,7 +309,7 @@ export default function Home() {
                     </div>
                     <div className="p-4 text-center">
                       <h4 className="font-bold text-slate-900 mb-1 group-hover:text-yellow-600 transition-colors">{priceRange.range}</h4>
-                      <span className="inline-block mt-2 text-xs font-semibold text-yellow-600">View all →</span>
+                      <span className="inline-block mt-2 text-xs font-semibold text-yellow-600">{t('common.viewAll')} →</span>
                     </div>
                   </Link>
                 ))}
@@ -318,7 +318,7 @@ export default function Home() {
             {/* Banner Space */}
             <div className="hidden lg:block">
               <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl border-2 border-yellow-200 p-6 h-full flex items-center justify-center min-h-[300px]">
-                <p className="text-slate-600 text-sm text-center">Banner Space</p>
+                <p className="text-slate-600 text-sm text-center">{t('common.bannerSpace')}</p>
               </div>
             </div>
           </div>
@@ -363,7 +363,7 @@ export default function Home() {
                   </p>
                   <p className="text-lg font-extrabold text-yellow-600 mb-3">{item.price}</p>
                   <span className="text-xs text-slate-600 group-hover:text-yellow-600 transition-colors font-semibold">
-                    View Details →
+                    {t('home.viewDetails')} →
                   </span>
                 </div>
               </Link>
@@ -403,7 +403,7 @@ export default function Home() {
             {/* Banner Space */}
             <div className="hidden lg:block">
               <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl border-2 border-yellow-200 p-6 h-full flex items-center justify-center min-h-[300px]">
-                <p className="text-slate-600 text-sm text-center">Banner Space</p>
+                <p className="text-slate-600 text-sm text-center">{t('common.bannerSpace')}</p>
               </div>
             </div>
           </div>
@@ -415,7 +415,7 @@ export default function Home() {
           {/* Horizontal Banner Over Browse by Application */}
           <div className="mb-6">
             <div className="bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl p-4 text-center">
-              <p className="text-white text-sm font-semibold">Banner Space</p>
+              <p className="text-white text-sm font-semibold">{t('common.bannerSpace')}</p>
             </div>
           </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
@@ -424,39 +424,39 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               { 
-                name: 'Aerial Work', 
+                name: t('home.applications.aerialWork'), 
                 icon: Building2,
-                equipment: ['Boom lifts', 'Scissor lifts', 'Telehandlers'],
+                equipment: [t('home.applicationEquipment.boomLifts'), t('home.applicationEquipment.scissorLifts'), t('home.applicationEquipment.telehandlers')],
                 image: '/machinery-images/telehandlers.0dfab854.webp'
               },
               { 
-                name: 'Earthmoving', 
+                name: t('home.applications.earthmoving'), 
                 icon: Truck,
-                equipment: ['Excavators', 'Dozers', 'Loaders', 'Scrapers'],
+                equipment: [t('home.applicationEquipment.excavators'), t('home.applicationEquipment.dozers'), t('home.applicationEquipment.loaders'), t('home.applicationEquipment.scrapers')],
                 image: '/machinery-images/excavators.b19c4bba.webp'
               },
               { 
-                name: 'Paving', 
+                name: t('home.applications.paving'), 
                 icon: TrendingUp,
-                equipment: ['Asphalt pavers', 'Rollers', 'Milling machines'],
+                equipment: [t('home.applicationEquipment.asphaltPavers'), t('home.applicationEquipment.rollers'), t('home.applicationEquipment.millingMachines')],
                 image: '/machinery-images/motor-graders.00e1657a.webp'
               },
               { 
-                name: 'Power Generation', 
+                name: t('home.applications.powerGeneration'), 
                 icon: Zap,
-                equipment: ['Generators', 'Light towers'],
+                equipment: [t('home.applicationEquipment.generators'), t('home.applicationEquipment.lightTowers')],
                 image: '/machinery-images/service-trucks.a3cc7c24.webp'
               },
               { 
-                name: 'Trailers', 
+                name: t('home.applications.trailers'), 
                 icon: Truck,
-                equipment: ['Flatbeds', 'Lowboys', 'Utility'],
+                equipment: [t('home.applicationEquipment.flatbeds'), t('home.applicationEquipment.lowboys'), t('home.applicationEquipment.utility')],
                 image: '/machinery-images/service-trucks.a3cc7c24.webp'
               },
               { 
-                name: 'Trucks', 
+                name: t('home.applications.trucks'), 
                 icon: Truck,
-                equipment: ['Dump trucks', 'Water trucks', 'Service trucks'],
+                equipment: [t('home.applicationEquipment.dumpTrucks'), t('home.applicationEquipment.waterTrucks'), t('home.applicationEquipment.serviceTrucks')],
                 image: '/machinery-images/service-trucks.a3cc7c24.webp'
               },
             ].map((app, index) => {
@@ -486,7 +486,7 @@ export default function Home() {
                         <li key={i} className="text-xs text-slate-600">• {eq}</li>
                       ))}
                     </ul>
-                    <span className="text-xs font-semibold text-yellow-600">View all →</span>
+                    <span className="text-xs font-semibold text-yellow-600">{t('common.viewAll')} →</span>
                   </div>
                 </Link>
               );
@@ -506,9 +506,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { name: t('home.inspectionOffer.basic'), price: '$200', features: ['Visual inspection', 'Basic condition report', 'Photo documentation'] },
-              { name: t('home.inspectionOffer.pro'), price: '$350', features: ['Full visual inspection', 'Detailed condition report', 'Oil sample analysis', 'Comprehensive photos'] },
-              { name: t('home.inspectionOffer.full'), price: '$650', features: ['Complete inspection', 'Detailed mechanical report', 'Oil & fluid analysis', 'Performance testing', 'Full documentation'] },
+              { name: t('home.inspectionOffer.basic'), price: '$200', features: [t('home.inspectionFeatures.visualInspection'), t('home.inspectionFeatures.basicConditionReport'), t('home.inspectionFeatures.photoDocumentation')] },
+              { name: t('home.inspectionOffer.pro'), price: '$350', features: [t('home.inspectionFeatures.fullVisualInspection'), t('home.inspectionFeatures.detailedConditionReport'), t('home.inspectionFeatures.oilSampleAnalysis'), t('home.inspectionFeatures.comprehensivePhotos')] },
+              { name: t('home.inspectionOffer.full'), price: '$650', features: [t('home.inspectionFeatures.completeInspection'), t('home.inspectionFeatures.detailedMechanicalReport'), t('home.inspectionFeatures.oilFluidAnalysis'), t('home.inspectionFeatures.performanceTesting'), t('home.inspectionFeatures.fullDocumentation')] },
             ].map((tier, index) => (
               <div key={index} className="bg-white rounded-xl border-2 border-slate-200 p-6 hover:border-yellow-400 transition-all">
                 <div className="text-center mb-4">
@@ -541,9 +541,9 @@ export default function Home() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { name: 'Carlos Rodriguez', machines: ['Excavator', 'Bulldozer', 'Wheel Loader'], experience: '15 years', rating: 4.9, status: 'Elite' },
-              { name: 'Miguel Santos', machines: ['Backhoe', 'Skid Steer', 'Telehandler'], experience: '12 years', rating: 4.8, status: 'Pro' },
-              { name: 'Juan Martinez', machines: ['Motor Grader', 'Compactor', 'Forklift'], experience: '18 years', rating: 5.0, status: 'Elite' },
+              { name: 'Carlos Rodriguez', machines: [t('categories.excavators'), t('categories.bulldozers'), t('categories.wheelLoaders')], experience: `15 ${t('common.years')}`, rating: 4.9, status: 'Elite' },
+              { name: 'Miguel Santos', machines: [t('categories.backhoeLoaders'), t('categories.skidSteers'), t('categories.telehandlers')], experience: `12 ${t('common.years')}`, rating: 4.8, status: 'Pro' },
+              { name: 'Juan Martinez', machines: [t('categories.motorGraders'), t('categories.compactors'), t('categories.forklifts')], experience: `18 ${t('common.years')}`, rating: 5.0, status: 'Elite' },
             ].map((operator, index) => (
               <Link
                 key={index}
@@ -556,7 +556,7 @@ export default function Home() {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">{operator.name}</h4>
-                    <p className="text-sm text-slate-600">{operator.experience} experience</p>
+                    <p className="text-sm text-slate-600">{operator.experience} {t('common.experience')}</p>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                     operator.status === 'Elite' ? 'bg-yellow-500 text-slate-900' : 'bg-blue-500 text-white'
@@ -565,7 +565,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-slate-700 mb-2">Machines:</p>
+                  <p className="text-sm font-semibold text-slate-700 mb-2">{t('common.machines')}</p>
                   <div className="flex flex-wrap gap-2">
                     {operator.machines.map((machine, i) => (
                       <span key={i} className="px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded">
@@ -579,10 +579,75 @@ export default function Home() {
                     <span className="text-yellow-500 font-bold">{operator.rating}</span>
                     <span className="text-slate-400">★</span>
                   </div>
-                  <span className="text-xs font-semibold text-yellow-600">View Profile →</span>
+                  <span className="text-xs font-semibold text-yellow-600">{t('common.viewProfile')} →</span>
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+
+        {/* Membership Plans Section */}
+        <div className="mb-16 sm:mb-20">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+              {t('home.memberships.title')}
+            </h3>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t('home.memberships.subtitle')}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                name: 'Operators',
+                description: 'Find Better Jobs. Get Recognized.',
+                tiers: [
+                  { name: 'Basic', price: 'Free' },
+                  { name: 'Pro', price: 'RD $500/mo' },
+                  { name: 'Elite', price: 'RD $1,000/mo' }
+                ]
+              },
+              {
+                name: 'Employers',
+                description: 'Hire Faster. Build Reliable Teams.',
+                tiers: [
+                  { name: 'Basic', price: 'Free' },
+                  { name: 'Pro', price: 'USD $50/mo' },
+                  { name: 'Elite', price: 'USD $100/mo' }
+                ]
+              },
+              {
+                name: 'Sellers & Dealers',
+                description: 'Sell Faster. Close More Deals.',
+                tiers: [
+                  { name: 'Basic', price: 'Free' },
+                  { name: 'Pro', price: 'USD $50/mo' },
+                  { name: 'Elite', price: 'USD $100/mo' }
+                ]
+              }
+            ].map((group, index) => (
+              <div key={index} className="bg-white rounded-xl border-2 border-slate-200 p-6 hover:border-yellow-400 transition-all">
+                <h4 className="text-xl font-extrabold text-slate-900 mb-2">{group.name}</h4>
+                <p className="text-sm text-slate-600 mb-4">{group.description}</p>
+                <div className="space-y-2 mb-4">
+                  {group.tiers.map((tier, i) => (
+                    <div key={i} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
+                      <span className="font-semibold text-slate-700">{tier.name}</span>
+                      <span className="text-yellow-600 font-bold">{tier.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/memberships"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20"
+            >
+              {t('home.memberships.viewAllPlans')}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
 
@@ -591,22 +656,22 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">
-                Free Weekly Heavy Equipment Inventory Alerts
+                {t('home.emailSignup.title')}
               </h3>
               <p className="text-lg text-yellow-50 mb-6">
-                Join the over 10,000 buyers who receive our weekly inventory alerts with the latest equipment listings and exclusive deals.
+                {t('home.emailSignup.subtitle')}
               </p>
               <form className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder={t('home.emailSignup.placeholder')}
                   className="flex-1 px-4 py-3 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-white"
                 />
                 <button
                   type="submit"
                   className="px-6 py-3 bg-white text-yellow-600 font-bold rounded-xl hover:bg-yellow-50 transition-all shadow-lg whitespace-nowrap"
                 >
-                  Sign Me Up
+                  {t('home.emailSignup.button')}
                 </button>
               </form>
             </div>
@@ -628,10 +693,10 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: ClipboardCheck, title: t('home.comingSoon.features.inspection'), desc: 'AI-powered condition analysis and detailed inspection documentation' },
-              { icon: MessageCircle, title: t('home.comingSoon.features.chat'), desc: 'Real-time messaging between buyers and sellers with instant notifications' },
-              { icon: BarChart3, title: t('home.comingSoon.features.analytics'), desc: 'Price trends, market insights, and equipment valuation tools' },
-              { icon: Clock, title: t('home.comingSoon.features.support'), desc: 'Round-the-clock customer support and equipment assistance' },
+              { icon: ClipboardCheck, title: t('home.comingSoon.features.inspection'), desc: t('home.comingSoonDesc.inspection') },
+              { icon: MessageCircle, title: t('home.comingSoon.features.chat'), desc: t('home.comingSoonDesc.chat') },
+              { icon: BarChart3, title: t('home.comingSoon.features.analytics'), desc: t('home.comingSoonDesc.analytics') },
+              { icon: Clock, title: t('home.comingSoon.features.support'), desc: t('home.comingSoonDesc.support') },
             ].map((feature, index) => {
               const IconComponent = feature.icon;
               return (
@@ -672,7 +737,7 @@ export default function Home() {
                 <li><Link href="/about" className="hover:text-white transition-colors">{t('common.about')}</Link></li>
                 <li><Link href="/blog" className="hover:text-white transition-colors">{t('common.blog')}</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition-colors">{t('common.contact')}</Link></li>
-                <li><Link href="/memberships" className="hover:text-white transition-colors">Memberships</Link></li>
+                <li><Link href="/memberships" className="hover:text-white transition-colors">{t('footer.memberships')}</Link></li>
               </ul>
             </div>
             <div>

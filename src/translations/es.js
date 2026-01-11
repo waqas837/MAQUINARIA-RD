@@ -14,7 +14,17 @@ export const es = {
     faq: "Preguntas Frecuentes",
     blog: "Blog",
     finance: "Financiamiento",
-    allCategories: "Todas las Categorías"
+    allCategories: "Todas las Categorías",
+    bannerSpace: "Espacio para Banner",
+    viewAll: "Ver todo",
+    viewProfile: "Ver Perfil",
+    experience: "experiencia",
+    machines: "Máquinas:",
+    years: "años",
+    readyToGetStarted: "¿Listo para Empezar?",
+    getStarted: "Comenzar",
+    contactSales: "Contactar Ventas",
+    scheduleDemo: "Programar una Demo"
   },
   categories: {
     excavators: "Excavadoras",
@@ -39,7 +49,7 @@ export const es = {
   },
   home: {
     title: "El Mercado Oficial de las Maquinarias",
-    titleHighlight: "The official marketplace for machinery",
+    titleHighlight: "El mercado oficial de maquinaria",
     subtitle: "Encuentra el equipo pesado perfecto para tu negocio. Navega miles de listados verificados de vendedores confiables.",
     searchPlaceholder: "Buscar por tipo de equipo, marca o modelo...",
     popularSearches: "Búsquedas Populares",
@@ -108,11 +118,81 @@ export const es = {
         analytics: "Análisis de Mercado",
         support: "Soporte 24/7"
       }
+    },
+    priceRanges: {
+      under25k: "Menos de $25K",
+      under50k: "Menos de $50K",
+      under100k: "Menos de $100K",
+      under250k: "Menos de $250K"
+    },
+    applications: {
+      aerialWork: "Trabajo Aéreo",
+      earthmoving: "Movimiento de Tierras",
+      paving: "Pavimentación",
+      powerGeneration: "Generación de Energía",
+      trailers: "Remolques",
+      trucks: "Camiones"
+    },
+    applicationEquipment: {
+      boomLifts: "Plataformas elevadoras",
+      scissorLifts: "Plataformas tijera",
+      telehandlers: "Manipuladores telescópicos",
+      excavators: "Excavadoras",
+      dozers: "Bulldozers",
+      loaders: "Cargadores",
+      scrapers: "Raspadores",
+      asphaltPavers: "Pavimentadoras de asfalto",
+      rollers: "Rodillos",
+      millingMachines: "Fresadoras",
+      generators: "Generadores",
+      lightTowers: "Torres de iluminación",
+      flatbeds: "Plataformas",
+      lowboys: "Remolques bajos",
+      utility: "Utilidad",
+      dumpTrucks: "Volquetes",
+      waterTrucks: "Camiones de agua",
+      serviceTrucks: "Camiones de servicio"
+    },
+    inspectionFeatures: {
+      visualInspection: "Inspección visual",
+      basicConditionReport: "Informe básico de condición",
+      photoDocumentation: "Documentación fotográfica",
+      fullVisualInspection: "Inspección visual completa",
+      detailedConditionReport: "Informe detallado de condición",
+      oilSampleAnalysis: "Análisis de muestra de aceite",
+      comprehensivePhotos: "Fotos completas",
+      completeInspection: "Inspección completa",
+      detailedMechanicalReport: "Informe mecánico detallado",
+      oilFluidAnalysis: "Análisis de aceite y fluidos",
+      performanceTesting: "Pruebas de rendimiento",
+      fullDocumentation: "Documentación completa"
+    },
+    emailSignup: {
+      title: "Alertas Gratuitas Semanales de Inventario de Equipo Pesado",
+      subtitle: "Únete a más de 10,000 compradores que reciben nuestras alertas semanales de inventario con los últimos listados de equipos y ofertas exclusivas.",
+      placeholder: "Ingresa tu dirección de correo electrónico",
+      button: "Regístrate"
+    },
+    comingSoonDesc: {
+      inspection: "Análisis de condición impulsado por IA y documentación detallada de inspección",
+      chat: "Mensajería en tiempo real entre compradores y vendedores con notificaciones instantáneas",
+      analytics: "Tendencias de precios, información de mercado y herramientas de valoración de equipos",
+      support: "Soporte al cliente y asistencia de equipos las 24 horas"
+    },
+    memberships: {
+      title: "Elige Tu Plan",
+      subtitle: "Selecciona el nivel de membresía que se adapte a tus necesidades. Desde operadores hasta empleadores, vendedores hasta distribuidores.",
+      viewAllPlans: "Ver Todos los Planes de Membresía"
     }
   },
   navbar: {
     brandName: "MAQUINARIA RD",
-    tagline: "El mercado de las maquinarias"
+    tagline: "El Mercado Oficial de las Maquinarias",
+    aboutUs: "Acerca de Nosotros",
+    blog: "Blog",
+    contact: "Contacto",
+    helpCenter: "Centro de Ayuda",
+    faq: "Preguntas Frecuentes"
   },
   footer: {
     buyers: "Compradores",
@@ -122,7 +202,8 @@ export const es = {
     findEquipment: "Encontrar Equipo",
     inspectionServices: "Servicios de Inspección",
     privacyPolicy: "Política de privacidad",
-    termsOfService: "Términos de servicio"
+    termsOfService: "Términos de servicio",
+    memberships: "Membresías"
   }
 };
 

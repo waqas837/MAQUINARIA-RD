@@ -14,7 +14,17 @@ export const en = {
     faq: "FAQ",
     blog: "Blog",
     finance: "Finance",
-    allCategories: "All Categories"
+    allCategories: "All Categories",
+    bannerSpace: "Banner Space",
+    viewAll: "View all",
+    viewProfile: "View Profile",
+    experience: "experience",
+    machines: "Machines:",
+    years: "years",
+    readyToGetStarted: "Ready to Get Started?",
+    getStarted: "Get Started",
+    contactSales: "Contact Sales",
+    scheduleDemo: "Schedule a Demo"
   },
   categories: {
     excavators: "Excavators",
@@ -38,8 +48,8 @@ export const en = {
     articulatedTrucks: "Articulated Trucks"
   },
   home: {
-    title: "El Mercado Oficial de las Maquinarias",
-    titleHighlight: "The official marketplace for machinery",
+    title: "The Official Marketplace for Machinery",
+    titleHighlight: "El Mercado Oficial de las Maquinarias",
     subtitle: "Find the perfect heavy equipment for your business. Browse thousands of verified listings from trusted sellers.",
     searchPlaceholder: "Search by equipment type, brand, or model...",
     popularSearches: "Popular Searches",
@@ -108,11 +118,81 @@ export const en = {
         analytics: "Market Analytics",
         support: "24/7 Support"
       }
+    },
+    priceRanges: {
+      under25k: "Under $25K",
+      under50k: "Under $50K",
+      under100k: "Under $100K",
+      under250k: "Under $250K"
+    },
+    applications: {
+      aerialWork: "Aerial Work",
+      earthmoving: "Earthmoving",
+      paving: "Paving",
+      powerGeneration: "Power Generation",
+      trailers: "Trailers",
+      trucks: "Trucks"
+    },
+    applicationEquipment: {
+      boomLifts: "Boom lifts",
+      scissorLifts: "Scissor lifts",
+      telehandlers: "Telehandlers",
+      excavators: "Excavators",
+      dozers: "Dozers",
+      loaders: "Loaders",
+      scrapers: "Scrapers",
+      asphaltPavers: "Asphalt pavers",
+      rollers: "Rollers",
+      millingMachines: "Milling machines",
+      generators: "Generators",
+      lightTowers: "Light towers",
+      flatbeds: "Flatbeds",
+      lowboys: "Lowboys",
+      utility: "Utility",
+      dumpTrucks: "Dump trucks",
+      waterTrucks: "Water trucks",
+      serviceTrucks: "Service trucks"
+    },
+    inspectionFeatures: {
+      visualInspection: "Visual inspection",
+      basicConditionReport: "Basic condition report",
+      photoDocumentation: "Photo documentation",
+      fullVisualInspection: "Full visual inspection",
+      detailedConditionReport: "Detailed condition report",
+      oilSampleAnalysis: "Oil sample analysis",
+      comprehensivePhotos: "Comprehensive photos",
+      completeInspection: "Complete inspection",
+      detailedMechanicalReport: "Detailed mechanical report",
+      oilFluidAnalysis: "Oil & fluid analysis",
+      performanceTesting: "Performance testing",
+      fullDocumentation: "Full documentation"
+    },
+    emailSignup: {
+      title: "Free Weekly Heavy Equipment Inventory Alerts",
+      subtitle: "Join the over 10,000 buyers who receive our weekly inventory alerts with the latest equipment listings and exclusive deals.",
+      placeholder: "Enter your email address",
+      button: "Sign Me Up"
+    },
+    comingSoonDesc: {
+      inspection: "AI-powered condition analysis and detailed inspection documentation",
+      chat: "Real-time messaging between buyers and sellers with instant notifications",
+      analytics: "Price trends, market insights, and equipment valuation tools",
+      support: "Round-the-clock customer support and equipment assistance"
+    },
+    memberships: {
+      title: "Choose Your Plan",
+      subtitle: "Select the membership tier that fits your needs. From operators to employers, sellers to dealers.",
+      viewAllPlans: "View All Membership Plans"
     }
   },
   navbar: {
     brandName: "MAQUINARIA RD",
-    tagline: "El mercado de las maquinarias"
+    tagline: "The Official Marketplace for Machinery",
+    aboutUs: "About Us",
+    blog: "Blog",
+    contact: "Contact",
+    helpCenter: "Help Center",
+    faq: "FAQ"
   },
   footer: {
     buyers: "Buyers",
@@ -122,7 +202,8 @@ export const en = {
     findEquipment: "Find Equipment",
     inspectionServices: "Inspection Services",
     privacyPolicy: "Privacy policy",
-    termsOfService: "Terms of service"
+    termsOfService: "Terms of service",
+    memberships: "Memberships"
   }
 };
 

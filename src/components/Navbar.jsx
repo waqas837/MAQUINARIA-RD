@@ -39,24 +39,24 @@ const Navbar = () => {
   }, []);
 
   const buyCategories = [
-    { name: 'Excavators', href: '/buy?category=excavators' },
-    { name: 'Bulldozers', href: '/buy?category=bulldozers' },
-    { name: 'Wheel Loaders', href: '/buy?category=wheel-loaders' },
-    { name: 'Skid Steers', href: '/buy?category=skid-steers' },
-    { name: 'Track Loaders', href: '/buy?category=track-loaders' },
-    { name: 'Motor Graders', href: '/buy?category=motor-graders' },
-    { name: 'Backhoe Loaders', href: '/buy?category=backhoes' },
-    { name: 'Forklifts', href: '/buy?category=forklifts' },
-    { name: 'Telehandlers', href: '/buy?category=telehandlers' },
-    { name: 'Service Trucks', href: '/buy?category=service-trucks' },
+    { name: t('categories.excavators'), href: '/buy?category=excavators' },
+    { name: t('categories.bulldozers'), href: '/buy?category=bulldozers' },
+    { name: t('categories.wheelLoaders'), href: '/buy?category=wheel-loaders' },
+    { name: t('categories.skidSteers'), href: '/buy?category=skid-steers' },
+    { name: t('categories.wheelLoaders'), href: '/buy?category=track-loaders' },
+    { name: t('categories.motorGraders'), href: '/buy?category=motor-graders' },
+    { name: t('categories.backhoeLoaders'), href: '/buy?category=backhoes' },
+    { name: t('categories.forklifts'), href: '/buy?category=forklifts' },
+    { name: t('categories.telehandlers'), href: '/buy?category=telehandlers' },
+    { name: t('categories.serviceTrucks'), href: '/buy?category=service-trucks' },
   ];
 
   const aboutLinks = [
-    { name: 'About Us', href: '/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Help Center', href: '/help' },
-    { name: 'FAQ', href: '/faq' },
+    { name: t('navbar.aboutUs'), href: '/about' },
+    { name: t('navbar.blog'), href: '/blog' },
+    { name: t('navbar.contact'), href: '/contact' },
+    { name: t('navbar.helpCenter'), href: '/help' },
+    { name: t('navbar.faq'), href: '/faq' },
   ];
 
   return (

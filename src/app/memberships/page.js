@@ -6,15 +6,6 @@ import { ChevronDown, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MembershipsPage() {
-  const [openGroups, setOpenGroups] = useState({});
-
-  const toggleGroup = (groupName) => {
-    setOpenGroups(prev => ({
-      ...prev,
-      [groupName]: !prev[groupName]
-    }));
-  };
-
   const membershipGroups = [
     {
       name: 'Operators',
@@ -252,6 +243,22 @@ export default function MembershipsPage() {
       ]
     }
   ];
+
+  // Initialize all groups as open by default
+  const [openGroups, setOpenGroups] = useState(() => {
+    const initial = {};
+    membershipGroups.forEach(group => {
+      initial[group.name] = true;
+    });
+    return initial;
+  });
+
+  const toggleGroup = (groupName) => {
+    setOpenGroups(prev => ({
+      ...prev,
+      [groupName]: !prev[groupName]
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-[#f8fafc]">
