@@ -20,7 +20,7 @@ export default function Home() {
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
             {t('home.title')}
-            <span className="block text-yellow-500">{t('home.titleHighlight')}</span>
+            <span className="block text-yellow-500 text-2xl sm:text-3xl md:text-4xl mt-2">{t('home.titleHighlight')}</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
             {t('home.subtitle')}
@@ -63,7 +63,7 @@ export default function Home() {
           {/* Popular Searches */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 px-4">
             <span className="text-sm text-slate-500 font-semibold">{t('home.popularSearches')}:</span>
-            {['Excavators', 'Wheel Loaders', 'Bulldozers', 'Cranes'].map((tag) => (
+            {[t('home.popularTags.excavators'), t('home.popularTags.wheelLoaders'), t('home.popularTags.bulldozers'), t('home.popularTags.cranes')].map((tag) => (
               <Link
                 key={tag}
                 href="/buy"
@@ -82,19 +82,18 @@ export default function Home() {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
             {[
-              { name: 'Skid Steers', image: '/machinery-images/skid-steer-loaders.a630fec7.webp', href: '/buy?category=skid-steers' },
-              { name: 'Bulldozers', image: '/machinery-images/bulldozers.a78608c2.webp', href: '/buy?category=bulldozers' },
-              { name: 'Excavators', image: '/machinery-images/excavators.b19c4bba.webp', href: '/buy?category=excavators' },
-              { name: 'Track Loaders', image: '/machinery-images/compact-track-loaders.b49c3306.webp', href: '/buy?category=track-loaders' },
-              { name: 'Wheel Loaders', image: '/machinery-images/wheel-loaders.b6bfac38.webp', href: '/buy?category=wheel-loaders' },
-              { name: 'Motor Graders', image: '/machinery-images/motor-graders.00e1657a.webp', href: '/buy?category=motor-graders' },
-              { name: 'Backhoe Loaders', image: '/machinery-images/backhoe-loaders.c7382a6d.webp', href: '/buy?category=backhoes' },
-              { name: 'Bucket Trucks', image: '/machinery-images/bucket-trucks.8883f191.webp', href: '/buy?category=bucket-trucks' },
-              { name: 'Telehandlers', image: '/machinery-images/telehandlers.0dfab854.webp', href: '/buy?category=telehandlers' },
-              { name: 'Service Trucks', image: '/machinery-images/service-trucks.a3cc7c24.webp', href: '/buy?category=service-trucks' },
-              { name: 'Forklifts', image: '/machinery-images/forklifts.db350043.webp', href: '/buy?category=forklifts' },
-              { name: 'Lifts', image: '/machinery-images/lifts.96f74904.webp', href: '/buy?category=lifts' },
-              { name: 'Forestry', image: '/machinery-images/forestry-equipment.b9e01146.webp', href: '/buy?category=forestry' },
+              { name: t('home.categories.agriculturalTractors'), image: '/machinery-images/bulldozers.a78608c2.webp', href: '/buy?category=tractors' },
+              { name: t('home.categories.backhoeLoaders'), image: '/machinery-images/backhoe-loaders.c7382a6d.webp', href: '/buy?category=backhoes' },
+              { name: t('home.categories.miniExcavators'), image: '/machinery-images/excavators.b19c4bba.webp', href: '/buy?category=mini-excavators' },
+              { name: t('home.categories.telescopicHandlers'), image: '/machinery-images/telehandlers.0dfab854.webp', href: '/buy?category=telehandlers' },
+              { name: t('home.categories.trackedExcavators'), image: '/machinery-images/excavators.b19c4bba.webp', href: '/buy?category=excavators' },
+              { name: t('home.categories.wheelLoaders'), image: '/machinery-images/wheel-loaders.b6bfac38.webp', href: '/buy?category=wheel-loaders' },
+              { name: t('home.categories.tractors'), image: '/machinery-images/bulldozers.a78608c2.webp', href: '/buy?category=tractors' },
+              { name: t('home.categories.compactors'), image: '/machinery-images/motor-graders.00e1657a.webp', href: '/buy?category=compactors' },
+              { name: t('home.categories.compactEquipment'), image: '/machinery-images/skid-steer-loaders.a630fec7.webp', href: '/buy?category=compact-equipment' },
+              { name: t('home.categories.harvesters'), image: '/machinery-images/forestry-equipment.b9e01146.webp', href: '/buy?category=harvesters' },
+              { name: t('home.categories.generators'), image: '/machinery-images/service-trucks.a3cc7c24.webp', href: '/buy?category=generators' },
+              { name: t('home.categories.attachments'), image: '/machinery-images/forklifts.db350043.webp', href: '/buy?category=attachments' },
             ].map((category) => (
               <Link
                 key={category.name}
@@ -102,13 +101,12 @@ export default function Home() {
                 className="group bg-white rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden hover:border-yellow-300"
               >
                 <div className="relative h-32 sm:h-40 bg-slate-100 flex items-center justify-center">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    width={120}
-                    height={120}
-                    className="object-contain max-w-full max-h-full"
-                  />
+                  {/* Note: Images should be line drawings - using placeholder for now */}
+                  <div className="w-24 h-24 border-2 border-slate-400 rounded flex items-center justify-center">
+                    <svg className="w-16 h-16 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                  </div>
                 </div>
                 <div className="p-3 sm:p-4 text-center">
                   <h4 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-yellow-600 transition-colors">
@@ -117,11 +115,83 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+            {/* See All */}
+            <Link
+              href="/buy"
+              className="group bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl sm:rounded-2xl border-2 border-yellow-400 shadow-lg hover:shadow-xl transition-all overflow-hidden flex flex-col items-center justify-center min-h-[140px] sm:min-h-[180px]"
+            >
+              <div className="p-3 sm:p-4 text-center">
+                <h4 className="font-bold text-white text-lg sm:text-xl group-hover:scale-105 transition-transform">
+                  {t('home.categories.seeAll')}
+                </h4>
+                <p className="text-yellow-50 text-xs sm:text-sm mt-2">{t('home.categories.seeAllDesc')}</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Lightning Deals Section - Moved under Browse by Category */}
+        <div className="mb-16 sm:mb-20">
+          <div className="flex items-center gap-3 mb-6">
+            <Zap className="w-8 h-8 text-yellow-500" />
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{t('home.lightningDeals')}</h3>
+          </div>
+          <p className="text-slate-600 mb-6 max-w-2xl">
+            {t('home.lightningDealsDesc')}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              { name: '2021 Shipping Container', originalPrice: '$4,118', price: '$3,500', image: '/machinery-images/service-trucks.a3cc7c24.webp', discount: '15% OFF' },
+              { name: '2019 Scissor Lift', originalPrice: '$11,125', price: '$8,900', image: '/machinery-images/lifts.96f74904.webp', discount: '20% OFF' },
+              { name: '2020 Sprayer', originalPrice: '$16,667', price: '$15,000', image: '/machinery-images/forklifts.db350043.webp', discount: '10% OFF' },
+              { name: '2018 Excavator', originalPrice: '$88,636', price: '$78,000', image: '/machinery-images/excavators.b19c4bba.webp', discount: '12% OFF' },
+              { name: '2019 Tractor', originalPrice: '$42,683', price: '$35,000', image: '/machinery-images/wheel-loaders.b6bfac38.webp', discount: '18% OFF' },
+              { name: '2020 Wheel Loader', originalPrice: '$100,000', price: '$92,000', image: '/machinery-images/wheel-loaders.b6bfac38.webp', discount: '8% OFF' },
+            ].map((item, index) => (
+              <Link key={index} href="/buy/1" className="bg-white rounded-xl border-2 border-yellow-300 shadow-lg hover:shadow-xl transition-all overflow-hidden group relative">
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="px-3 py-1 bg-yellow-500 text-slate-900 text-xs font-bold rounded-full">
+                    {item.discount}
+                  </span>
+                </div>
+                <div className="relative h-40 bg-slate-100 flex items-center justify-center">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={140}
+                    height={140}
+                    className="object-contain max-w-full max-h-full"
+                  />
+                </div>
+                <div className="p-4">
+                  <h4 className="font-bold text-slate-900 text-sm mb-1 line-clamp-1">{item.name}</h4>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-sm text-slate-400 line-through">{item.originalPrice}</span>
+                    <span className="text-lg font-extrabold text-yellow-600">{item.price}</span>
+                  </div>
+                  <span className="text-xs text-slate-600 group-hover:text-yellow-600 transition-colors font-semibold">
+                    View Details →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/buy?deals=lightning" className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20">
+              {t('home.viewAllLightningDeals')}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
 
         {/* Buy with Confidence */}
         <div className="mb-16 sm:mb-20">
+          {/* Horizontal Banner Over Buy with Confidence */}
+          <div className="mb-6">
+            <div className="bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl p-4 text-center">
+              <p className="text-white text-sm font-semibold">Banner Space</p>
+            </div>
+          </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
             {t('home.buyWithConfidence')}
           </h3>
@@ -153,18 +223,18 @@ export default function Home() {
             <div className="lg:col-span-1 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-2xl p-6 sm:p-8 text-white">
               <div className="mb-4">
                 <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
-                  Special Offer
+                  {t('home.specialOffer')}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold mb-2">Featured Equipment</h3>
+                <h3 className="text-2xl sm:text-3xl font-extrabold mb-2">{t('home.featuredEquipment')}</h3>
                 <p className="text-yellow-50 text-sm sm:text-base mb-4">
-                  Premium listings with verified inspections and competitive pricing
+                  {t('home.featuredDesc')}
                 </p>
               </div>
               <Link
                 href="/buy?featured=true"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-yellow-600 font-bold rounded-xl hover:bg-yellow-50 transition-all shadow-lg"
               >
-                View Featured
+                {t('home.viewFeatured')}
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
@@ -172,13 +242,13 @@ export default function Home() {
             {/* Featured Equipment Cards */}
             <div className="lg:col-span-2">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">Priced to Sell</h3>
-                <Link href="/buy" className="text-yellow-600 hover:text-yellow-700 font-semibold text-sm flex items-center gap-1">
-                  View All
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">{t('home.availableForRent')}</h3>
+                <Link href="/rent" className="text-yellow-600 hover:text-yellow-700 font-semibold text-sm flex items-center gap-1">
+                  {t('home.viewAll')}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <p className="text-slate-600 text-sm mb-4">These items are priced to move fast. Don't miss out on these incredible deals.</p>
+              <p className="text-slate-600 text-sm mb-4">{t('home.availableForRentDesc')}</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { name: '2016 Komatsu PC210LC-10', price: '$105,000', image: '/machinery-images/excavators.b19c4bba.webp' },
@@ -199,7 +269,7 @@ export default function Home() {
                       <h4 className="font-bold text-slate-900 text-sm mb-1 line-clamp-1">{item.name}</h4>
                       <p className="text-lg font-extrabold text-yellow-600 mb-3">{item.price}</p>
                       <span className="text-xs text-slate-600 group-hover:text-yellow-600 transition-colors font-semibold">
-                        View Details →
+                        {t('home.viewDetails')} →
                       </span>
                     </div>
                   </Link>
@@ -211,37 +281,46 @@ export default function Home() {
 
         {/* Shop by Price Section */}
         <div className="mb-16 sm:mb-20">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
-            Shop by Price
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { range: 'Under $25K', image: '/machinery-images/forklifts.db350043.webp', count: '1,234' },
-              { range: 'Under $50K', image: '/machinery-images/skid-steer-loaders.a630fec7.webp', count: '856' },
-              { range: 'Under $100K', image: '/machinery-images/service-trucks.a3cc7c24.webp', count: '542' },
-              { range: 'Under $250K', image: '/machinery-images/excavators.b19c4bba.webp', count: '328' },
-            ].map((priceRange, index) => (
-              <Link
-                key={index}
-                href={`/buy?maxPrice=${priceRange.range.includes('25K') ? '25000' : priceRange.range.includes('50K') ? '50000' : priceRange.range.includes('100K') ? '100000' : '250000'}`}
-                className="group bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden hover:border-yellow-300"
-              >
-                <div className="relative h-32 sm:h-40 bg-slate-100 flex items-center justify-center">
-                  <Image
-                    src={priceRange.image}
-                    alt={priceRange.range}
-                    width={100}
-                    height={100}
-                    className="object-contain max-w-full max-h-full"
-                  />
-                </div>
-                <div className="p-4 text-center">
-                  <h4 className="font-bold text-slate-900 mb-1 group-hover:text-yellow-600 transition-colors">{priceRange.range}</h4>
-                  <p className="text-xs text-slate-500">{priceRange.count} listings</p>
-                  <span className="inline-block mt-2 text-xs font-semibold text-yellow-600">View all →</span>
-                </div>
-              </Link>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-3">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
+                {t('home.shopByPrice')}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                {[
+                  { range: 'Under $25K', image: '/machinery-images/forklifts.db350043.webp' },
+                  { range: 'Under $50K', image: '/machinery-images/skid-steer-loaders.a630fec7.webp' },
+                  { range: 'Under $100K', image: '/machinery-images/service-trucks.a3cc7c24.webp' },
+                  { range: 'Under $250K', image: '/machinery-images/excavators.b19c4bba.webp' },
+                ].map((priceRange, index) => (
+                  <Link
+                    key={index}
+                    href={`/buy?maxPrice=${priceRange.range.includes('25K') ? '25000' : priceRange.range.includes('50K') ? '50000' : priceRange.range.includes('100K') ? '100000' : '250000'}`}
+                    className="group bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden hover:border-yellow-300"
+                  >
+                    <div className="relative h-32 sm:h-40 bg-slate-100 flex items-center justify-center">
+                      <Image
+                        src={priceRange.image}
+                        alt={priceRange.range}
+                        width={100}
+                        height={100}
+                        className="object-contain max-w-full max-h-full"
+                      />
+                    </div>
+                    <div className="p-4 text-center">
+                      <h4 className="font-bold text-slate-900 mb-1 group-hover:text-yellow-600 transition-colors">{priceRange.range}</h4>
+                      <span className="inline-block mt-2 text-xs font-semibold text-yellow-600">View all →</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Banner Space */}
+            <div className="hidden lg:block">
+              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl border-2 border-yellow-200 p-6 h-full flex items-center justify-center min-h-[300px]">
+                <p className="text-slate-600 text-sm text-center">Banner Space</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -250,7 +329,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <MapPin className="w-6 h-6 text-yellow-600" />
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Top Deals Near You</h3>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{t('home.topDealsNearYou')}</h3>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-lg">
               <MapPin className="w-4 h-4 text-slate-600" />
@@ -292,7 +371,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-6">
             <Link href="/buy" className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20">
-              Shop All Deals
+              {t('home.shopAllDeals')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -300,81 +379,47 @@ export default function Home() {
 
         {/* Top Manufacturers Section */}
         <div className="mb-16 sm:mb-20">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
-            Used Equipment from Top Manufacturers
-          </h3>
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
-            <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-8 gap-4 sm:gap-6">
-              {['Caterpillar', 'John Deere', 'Komatsu', 'Bobcat', 'Volvo', 'JCB', 'Case', 'Hitachi', 'Hyundai', 'Doosan', 'Sany', 'Genie', 'Terex', 'Kubota', 'Liebherr', 'XCMG'].map((brand) => (
-                <Link
-                  key={brand}
-                  href={`/buy?manufacturer=${brand.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="group flex items-center justify-center p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-yellow-300 hover:bg-yellow-50 transition-all"
-                >
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 group-hover:text-yellow-600 transition-colors text-center">
-                    {brand}
-                  </span>
-                </Link>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-3">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
+                {t('home.topManufacturers')}
+              </h3>
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+                <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-8 gap-4 sm:gap-6">
+                  {['Caterpillar', 'John Deere', 'Komatsu', 'Bobcat', 'Volvo', 'JCB', 'Case', 'Hitachi', 'Hyundai', 'Doosan', 'Sany', 'Genie', 'Terex', 'Kubota', 'Liebherr', 'XCMG', 'Yanmar', 'Farmtrac', 'JLG', 'Valtra', 'Solis', 'Massey Ferguson', 'Landini', 'New Holland', 'LS Tractor', 'Kalmar', 'Zoomlion', 'Clark', 'Cummins', 'Hyster', 'Stihl'].map((brand) => (
+                    <Link
+                      key={brand}
+                      href={`/buy?manufacturer=${brand.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="group flex items-center justify-center p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-yellow-300 hover:bg-yellow-50 transition-all"
+                    >
+                      <span className="text-xs sm:text-sm font-bold text-slate-700 group-hover:text-yellow-600 transition-colors text-center">
+                        {brand}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {/* Banner Space */}
+            <div className="hidden lg:block">
+              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl border-2 border-yellow-200 p-6 h-full flex items-center justify-center min-h-[300px]">
+                <p className="text-slate-600 text-sm text-center">Banner Space</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Lightning Deals Section */}
-        <div className="mb-16 sm:mb-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Zap className="w-8 h-8 text-yellow-500" />
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Lightning Deals</h3>
-          </div>
-          <p className="text-slate-600 mb-6 max-w-2xl">
-            Check out these incredible deals before they're gone! Limited time offers on your favorite equipment.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { name: '2021 Shipping Container', price: '$3,500', image: '/machinery-images/service-trucks.a3cc7c24.webp', discount: '15% OFF' },
-              { name: '2019 Scissor Lift', price: '$8,900', image: '/machinery-images/lifts.96f74904.webp', discount: '20% OFF' },
-              { name: '2020 Sprayer', price: '$15,000', image: '/machinery-images/forklifts.db350043.webp', discount: '10% OFF' },
-              { name: '2018 Excavator', price: '$78,000', image: '/machinery-images/excavators.b19c4bba.webp', discount: '12% OFF' },
-              { name: '2019 Tractor', price: '$35,000', image: '/machinery-images/wheel-loaders.b6bfac38.webp', discount: '18% OFF' },
-              { name: '2020 Wheel Loader', price: '$92,000', image: '/machinery-images/wheel-loaders.b6bfac38.webp', discount: '8% OFF' },
-            ].map((item, index) => (
-              <Link key={index} href="/buy/1" className="bg-white rounded-xl border-2 border-yellow-300 shadow-lg hover:shadow-xl transition-all overflow-hidden group relative">
-                <div className="absolute top-3 right-3 z-10">
-                  <span className="px-3 py-1 bg-yellow-500 text-slate-900 text-xs font-bold rounded-full">
-                    {item.discount}
-                  </span>
-                </div>
-                <div className="relative h-40 bg-slate-100 flex items-center justify-center">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={140}
-                    height={140}
-                    className="object-contain max-w-full max-h-full"
-                  />
-                </div>
-                <div className="p-4">
-                  <h4 className="font-bold text-slate-900 text-sm mb-1 line-clamp-1">{item.name}</h4>
-                  <p className="text-lg font-extrabold text-yellow-600 mb-3">{item.price}</p>
-                  <span className="text-xs text-slate-600 group-hover:text-yellow-600 transition-colors font-semibold">
-                    View Details →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-6">
-            <Link href="/buy?deals=lightning" className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20">
-              View All Lightning Deals
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
 
         {/* Browse by Application Section */}
         <div className="mb-16 sm:mb-20">
+          {/* Horizontal Banner Over Browse by Application */}
+          <div className="mb-6">
+            <div className="bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl p-4 text-center">
+              <p className="text-white text-sm font-semibold">Banner Space</p>
+            </div>
+          </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
-            Browse by Application
+            {t('home.browseByApplication')}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
@@ -449,44 +494,95 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Tried, Tested & Trusted Section */}
-        <div className="mb-16 sm:mb-20 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl sm:rounded-3xl p-8 sm:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div>
+        {/* Inspection Offer Section - Changed from Tried, Tested & Trusted */}
+        <div className="mb-16 sm:mb-20 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl sm:rounded-3xl border-2 border-yellow-200 p-8 sm:p-12">
+          <div className="text-center mb-8">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-                Tried, Tested, & Trusted
+                {t('home.inspectionOffer.title')}
               </h3>
-              <p className="text-lg text-slate-600 mb-6">
-                MAQUINARIA RD is the Dominican Republic's most trusted marketplace for used heavy equipment. We're backed by a global network of certified inspectors and a secure payment program.
+              <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+                {t('home.inspectionOffer.subtitle')}
               </p>
-              <div className="flex flex-wrap items-center gap-6 mb-6">
-                <div className="flex items-center gap-2">
-                  <Award className="w-6 h-6 text-yellow-600" />
-                  <div>
-                    <p className="font-bold text-slate-900">Excellent</p>
-                    <p className="text-xs text-slate-600">Trustpilot Rating</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { name: t('home.inspectionOffer.basic'), price: '$200', features: ['Visual inspection', 'Basic condition report', 'Photo documentation'] },
+              { name: t('home.inspectionOffer.pro'), price: '$350', features: ['Full visual inspection', 'Detailed condition report', 'Oil sample analysis', 'Comprehensive photos'] },
+              { name: t('home.inspectionOffer.full'), price: '$650', features: ['Complete inspection', 'Detailed mechanical report', 'Oil & fluid analysis', 'Performance testing', 'Full documentation'] },
+            ].map((tier, index) => (
+              <div key={index} className="bg-white rounded-xl border-2 border-slate-200 p-6 hover:border-yellow-400 transition-all">
+                <div className="text-center mb-4">
+                  <h4 className="text-xl font-extrabold text-slate-900 mb-2">{tier.name}</h4>
+                  <p className="text-3xl font-extrabold text-yellow-600">{tier.price}</p>
+                </div>
+                <ul className="space-y-2 mb-6">
+                  {tier.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                      <CheckCircle className="w-4 h-4 text-yellow-600 mt-0.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/inspection"
+                  className="block w-full text-center px-4 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all"
+                >
+                  {t('home.inspectionOffer.learnMore')}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Outstanding Operators Section */}
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 text-center">
+            {t('home.outstandingOperators')}
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { name: 'Carlos Rodriguez', machines: ['Excavator', 'Bulldozer', 'Wheel Loader'], experience: '15 years', rating: 4.9, status: 'Elite' },
+              { name: 'Miguel Santos', machines: ['Backhoe', 'Skid Steer', 'Telehandler'], experience: '12 years', rating: 4.8, status: 'Pro' },
+              { name: 'Juan Martinez', machines: ['Motor Grader', 'Compactor', 'Forklift'], experience: '18 years', rating: 5.0, status: 'Elite' },
+            ].map((operator, index) => (
+              <Link
+                key={index}
+                href="/work/operators"
+                className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden group p-6"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold text-yellow-600">{operator.name.split(' ').map(n => n[0]).join('')}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">{operator.name}</h4>
+                    <p className="text-sm text-slate-600">{operator.experience} experience</p>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    operator.status === 'Elite' ? 'bg-yellow-500 text-slate-900' : 'bg-blue-500 text-white'
+                  }`}>
+                    {operator.status}
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-slate-700 mb-2">Machines:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {operator.machines.map((machine, i) => (
+                      <span key={i} className="px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded">
+                        {machine}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-6 h-6 text-yellow-600" />
-                  <div>
-                    <p className="font-bold text-slate-900">BBB Accredited</p>
-                    <p className="text-xs text-slate-600">Business</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1">
+                    <span className="text-yellow-500 font-bold">{operator.rating}</span>
+                    <span className="text-slate-400">★</span>
                   </div>
+                  <span className="text-xs font-semibold text-yellow-600">View Profile →</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20">
-                  <Play className="w-5 h-5" />
-                  Watch Our Story
-                </button>
-              </div>
-            </div>
-            <div className="relative h-64 sm:h-80 bg-slate-200 rounded-xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Play className="w-16 h-16 text-yellow-500" />
-              </div>
-            </div>
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -576,6 +672,7 @@ export default function Home() {
                 <li><Link href="/about" className="hover:text-white transition-colors">{t('common.about')}</Link></li>
                 <li><Link href="/blog" className="hover:text-white transition-colors">{t('common.blog')}</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition-colors">{t('common.contact')}</Link></li>
+                <li><Link href="/memberships" className="hover:text-white transition-colors">Memberships</Link></li>
               </ul>
             </div>
             <div>

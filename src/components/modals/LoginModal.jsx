@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 
 const LoginModal = ({ isOpen, onClose, onSwitchToSignup }) => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
   const [mounted, setMounted] = useState(false);
@@ -51,15 +51,15 @@ const LoginModal = ({ isOpen, onClose, onSwitchToSignup }) => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Email Address
+              Username
             </label>
             <input
-              type="email"
+              type="text"
               required
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, username: e.target.value })}
               className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none"
-              placeholder="your@email.com"
+              placeholder="yourusername"
             />
           </div>
 

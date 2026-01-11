@@ -1,85 +1,55 @@
+'use client';
+
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { useState } from "react";
 
-export const metadata = {
-  title: "Buy Equipment - MAQUINARIA RD",
-  description: "Browse and buy used heavy equipment",
-};
+export default function RentPage() {
+  const [showListModal, setShowListModal] = useState(false);
 
-export default function BuyPage() {
-  // Sample equipment data
+  // Sample rental equipment data
   const equipment = [
     {
       id: 1,
       title: "Caterpillar 320D Excavator",
       year: 2018,
       hours: 3200,
-      price: 125000,
+      price: 1250,
       location: "Santo Domingo",
       category: "excavators",
-      condition: "Excellent"
+      available: true,
+      availableUntil: "2024-12-31"
     },
     {
       id: 2,
       title: "John Deere 872GP Wheel Loader",
       year: 2019,
       hours: 2800,
-      price: 97500,
+      price: 950,
       location: "Santiago",
       category: "wheel-loaders",
-      condition: "Very Good"
+      available: true,
+      availableUntil: "2024-11-30"
     },
     {
       id: 3,
       title: "Komatsu PC210LC-10 Excavator",
       year: 2015,
       hours: 4500,
-      price: 47000,
+      price: 800,
       location: "La Romana",
       category: "excavators",
-      condition: "Good"
-    },
-    {
-      id: 4,
-      title: "Bobcat S570 Skid Steer",
-      year: 2020,
-      hours: 1200,
-      price: 35000,
-      location: "Punta Cana",
-      category: "skid-steers",
-      condition: "Excellent"
-    },
-    {
-      id: 5,
-      title: "Case 580N Backhoe Loader",
-      year: 2017,
-      hours: 3800,
-      price: 42000,
-      location: "San Cristóbal",
-      category: "backhoes",
-      condition: "Very Good"
-    },
-    {
-      id: 6,
-      title: "Volvo EC220E Excavator",
-      year: 2019,
-      hours: 2500,
-      price: 89000,
-      location: "Santo Domingo",
-      category: "excavators",
-      condition: "Excellent"
+      available: false,
+      availableUntil: null
     },
   ];
 
-  // Map categories to images
   const categoryImages = {
     'excavators': '/machinery-images/excavators.b19c4bba.webp',
     'wheel-loaders': '/machinery-images/wheel-loaders.b6bfac38.webp',
     'skid-steers': '/machinery-images/skid-steer-loaders.a630fec7.webp',
     'backhoes': '/machinery-images/backhoe-loaders.c7382a6d.webp',
-    'bulldozers': '/machinery-images/bulldozers.a78608c2.webp',
-    'forklifts': '/machinery-images/forklifts.db350043.webp',
   };
 
   const categories = [
@@ -103,14 +73,17 @@ export default function BuyPage() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-                Buy Equipment
+                Rent Equipment
               </h1>
               <p className="text-lg text-slate-600">
-                Browse our inventory of verified heavy equipment
+                Browse our inventory of available equipment for rent
               </p>
             </div>
-            <button className="px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20 whitespace-nowrap">
-              Fill Form for Specific Needs
+            <button
+              onClick={() => setShowListModal(true)}
+              className="px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-xl hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20 whitespace-nowrap"
+            >
+              List your equipment for rent
             </button>
           </div>
         </div>
@@ -138,10 +111,10 @@ export default function BuyPage() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">Price Range</label>
               <select className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none">
                 <option>All Prices</option>
-                <option>Under $50,000</option>
-                <option>$50,000 - $100,000</option>
-                <option>$100,000 - $250,000</option>
-                <option>Over $250,000</option>
+                <option>Under $500/day</option>
+                <option>$500 - $1,000/day</option>
+                <option>$1,000 - $2,000/day</option>
+                <option>Over $2,000/day</option>
               </select>
             </div>
             <div>
@@ -162,7 +135,7 @@ export default function BuyPage() {
           {equipment.map((item) => (
             <Link
               key={item.id}
-              href={`/buy/${item.id}`}
+              href={`/rent/${item.id}`}
               className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden group"
             >
               <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-100 flex items-center justify-center">
@@ -183,11 +156,9 @@ export default function BuyPage() {
                 )}
                 <div className="absolute top-4 right-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                    item.condition === 'Excellent' ? 'bg-emerald-100 text-emerald-700' :
-                    item.condition === 'Very Good' ? 'bg-blue-100 text-blue-700' :
-                    'bg-amber-100 text-amber-700'
+                    item.available ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'
                   }`}>
-                    {item.condition}
+                    {item.available ? 'Available' : 'Unavailable'}
                   </span>
                 </div>
               </div>
@@ -200,9 +171,12 @@ export default function BuyPage() {
                   <span>{item.hours.toLocaleString()} hrs</span>
                   <span>{item.location}</span>
                 </div>
+                {item.available && item.availableUntil && (
+                  <p className="text-xs text-slate-500 mb-2">Available until: {new Date(item.availableUntil).toLocaleDateString()}</p>
+                )}
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-extrabold text-slate-900">
-                    ${item.price.toLocaleString()}
+                    ${item.price.toLocaleString()}/day
                   </span>
                   <span className="text-sm font-semibold text-yellow-600">
                     View Details →
@@ -220,8 +194,47 @@ export default function BuyPage() {
           </button>
         </div>
       </main>
+
+      {/* List Equipment Modal */}
+      {showListModal && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowListModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowListModal(false)}
+              className="absolute top-4 right-4 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+            >
+              <svg className="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 className="text-2xl font-extrabold text-slate-900 mb-6">List Your Equipment for Rent</h2>
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Equipment Type</label>
+                <input type="text" className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-yellow-500 outline-none" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Machine Available or Working?</label>
+                <select className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-yellow-500 outline-none">
+                  <option>Available</option>
+                  <option>Working</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Available Until (if working)</label>
+                <input type="date" className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-yellow-500 outline-none" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Daily Rate</label>
+                <input type="number" className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-yellow-500 outline-none" />
+              </div>
+              <button type="submit" className="w-full py-3 rounded-xl bg-yellow-500 text-slate-900 font-bold hover:bg-yellow-600 transition-all">
+                Submit Listing
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
-

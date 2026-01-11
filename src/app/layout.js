@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         <LanguageProvider>
-          {children}
+        {children}
         </LanguageProvider>
       </body>
     </html>

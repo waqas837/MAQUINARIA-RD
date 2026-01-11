@@ -1,0 +1,72 @@
+Landing Page Edits
+
+Menu bar options: BUY   -   SELL   -   RENT   -   WORK   -   FINANCE
+Make the logo bigger so you can see what it is. This is important for brand recognition.
+Remove About and put it on the footer menu
+Remove phone number
+Make login/sign up a different color button
+Change the words “Buy used equipment effortlessly” to “El Mercado Oficial de las Maquinarias” in english “The official marketplace for machinery”
+Browse by category
+All images must be line drawings like so. 
+
+Remove Bucket trucks
+Remove service trucks
+Add Tractors
+Add Compactors
+Add compact equipment
+Add Harvesters
+Add generators
+Add attachments
+Add See all
+Rent button. When clicked, all vehicles for rent will be shown but at the top of the search bar there will be a button that says list your equipment for rent.
+
+It would say rent equipment (I took the example from the buy equipment tab). 
+When creating a listing for rent it can be the same as the sell. The only difference would be adding a question that says machine available or working. If working they have to list until when.
+BUY page
+Add a button where people can fill out the form with the specifics they need. This will alert people who own equipment with that specification. 
+WORK TAB
+Drop down that contains: Operadores (Operators) and Postea un trabajo (Post a job)
+Operators page is same format as the buy equipment page. It will display all the operators and what machines they drive. Also if they are pro or elite. On top of the search bar put the button “List your services here”
+Post a job page is same format as operators. All jobs will be displayed and the button on top will say “post a job”
+On lightning deals section add the feature where the price is crossed out and the new price shows with the discount. 
+Shop by price section:
+Remove the number of listings
+USED & NEW EQUIPMENT FROM TOP MANUFACTURERS
+Add all logos
+Add brands: 
+Yanmar
+Farmtrac
+JLG
+Valtra
+Solis
+Massey Fergusson
+Landini
+New Holland
+Ls Tractor
+Kalmar
+Zoomlion
+Clark
+Cummins
+Hyster
+Stihl
+Change the tried, tested and trusted section to an offer for inspection. Inspections tiers will be provided.
+Add space for banners on the side for shop by price section
+Add space for banner on side of Used & new equipment from top…..
+Horizontal banner over Buy with confidence
+Horizontal banner over browse by application
+Possible to make people get notifications on phone???
+Change priced to sell title to available for rent. Here available equipment for rent will be shown.
+CHANGE LOCATIONS:
+Put lightning deals under browse by category
+Add a section called outstanding operators. List here 3 operators.
+Create a memberships page where they are all listed by their group. When you click on the group, example operators, it will collapse and show all the memberships.
+CREATE ACCOUNT:
+Text should say “Join maquinaria RD to buy, sell or rent equipment and operators. 
+Need Username, Full name or business, number, whatsapp, email
+On form have drop down or button to select or I AM Buyer, seller, renter or operator, and people posting a job
+SIGN IN: Require username and password.
+
+
+
+
+
